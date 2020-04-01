@@ -1,0 +1,32 @@
+<div class="row pt-5 background-login">
+    <div class="col-md-5 mx-auto login-box">
+        <div class="card">
+            <div class="card-header" style="text-align:center;">
+                <h3 class="mb-0">Recuperar Acesso</h3>
+            </div>
+            <div class="card-body">
+                <form class="form">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-9">
+                                <div class="form-group">
+                                    <label for="">Login:</label>
+                                    <input [(ngModel)]="strEmail" name="email" type="text" class="form-control rounded-0" required>
+                                </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row  align-items-center justify-content-center" *ngIf="aguardando == false">
+                                <button (click)="enviarEmail()" type="button" class="btn btn-success btn-login"><mat-icon style="font-size: 50px; margin-left: -25px; margin-top: -25px; ">done</mat-icon></button>
+                            </div>
+                            <div class="row  align-items-center justify-content-center" *ngIf="aguardando == true">
+                                <button type="button" disabled class="btn btn-success btn-login" style="font-size:12px;">aguarde</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row align-items-center justify-content-center">
+                            <button (click)="telaEmail()" type="button" class="btn">Tela email!</button>
+                    </div>-->
+                </form>
+            </div>
+        </div> 
+    </div>
+</div>

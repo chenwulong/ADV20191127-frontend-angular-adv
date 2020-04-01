@@ -1,0 +1,15 @@
+.filler {
+    flex: 1 1 auto;
+  }
+ 
+  .gap {
+    margin-right: 500px;
+  }
+ 
+  .container {
+    display: flex;
+ }
+ 
+ .fill {
+    flex: 1;
+ }

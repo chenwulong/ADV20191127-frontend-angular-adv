@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="navbar">
+    <span class = "gap">Listagem de Usuários</span>
+    <div>
+      <span>Filtro: </span>
+      <input type="text" [ngModel]="filtro" (ngModelChange)="filtrou($event)" style="width:300px;">
+      <button mat-flat-button style="top:-2px; margin-left:10px; width:200px;" (click)="novo()">Novo</button>
+    </div>
+</mat-toolbar>
+
+<div class="row mt-5">
+  <div *ngIf="usuarios.length == 0" style="text-align:center; width:100%;">Nenhum registro encontrado</div>
+  <div class="col-md-4 mb-3" *ngFor="let usuario of usuarios">
+    <mat-card>
+      <mat-card-title>
+        <mat-card-header>
+          <div class="container">
+            <div> {{ usuario.codUsuario }}</div>
+            <div class="fill"></div>
+            <div><mat-icon style="font-size:50px; margin-left:-25px; margin-top:-25px; cursor:pointer" (click)="excluir(usuario)">highlight_off</mat-icon></div>
+          </div>
+        </mat-card-header> 
+      </mat-card-title>
+      <mat-card-content align="center" (click)="editar(usuario)" style="cursor: pointer;">
+          <p class="card-text">Login: {{usuario.strLogin}}</p>
+      </mat-card-content>  
+    </mat-card>
+  </div>
+</div>

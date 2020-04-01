@@ -1,0 +1,54 @@
+<mat-toolbar color="primary" class="navbar">
+  <span>Listagem de Ações</span>
+  <!--<span class = "gap">Listagem de Ações</span>-->
+  <div>
+    <span>Filtro: </span>
+    <!--<input type="text" [ngModel]="filtro" (ngModelChange)="filtrou($event, 1)" style="width:300px;">-->
+    <input type="text" [ngModel]="filtro" (ngModelChange)="updateFiltro($event)" style="width:300px;">
+    <button mat-flat-button style="top:-2px; margin-left:10px; width:200px;" (click)="pesquisar()">Pesquisar</button>
+    <button mat-flat-button style="top:-2px; margin-left:10px; width:200px;" (click)="novo()">Novo</button>
+  </div>
+</mat-toolbar>
+
+<div class="row mt-1" style="min-height:558px;">
+  <div *ngIf="acoes.length == 0" style="text-align:center; width:100%;">Nenhum registro encontrado</div>
+  <div class="col-md-4 mb-3" *ngFor="let acao of acoes">
+    <mat-card>
+      <mat-card-title>
+        <mat-card-header>
+          <div class="container">
+            <div style="min-height:72px; font-size:19px;"> {{ acao.codAcao }} - {{ acao.numPasta }}</div>
+            <div class="fill"></div>
+            <div><mat-icon style="font-size:50px; margin-left:-25px; margin-top:-25px; cursor:pointer" (click)="excluir(acao)">highlight_off</mat-icon></div>
+          </div>
+        </mat-card-header> 
+      </mat-card-title>
+      <mat-card-content align="center" (click)="editar(acao)" style="cursor: pointer;">
+        <p class="card-text" style="font-size:13px;">Autor: {{acao.strAutor}}</p>
+        <p class="card-text" style="font-size:13px;">Réu: {{acao.strReu}}</p>
+        <!--<p class="card-text">Obs.: {{acao.strObservacao}}</p>-->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!--<span>Third Line</span>-->
+    <span class="example-spacer"></span>
+    <!-- '[inline]="true"' for resized icons -->
+    <mat-icon class="custom-page-icon" *ngIf="possuiAnterior()" (click)="navegarPagina(1)">first_page</mat-icon>
+    <mat-icon class="custom-page-icon-disabled" *ngIf="!possuiAnterior()">first_page</mat-icon>
+
+    <mat-icon class="custom-page-icon" *ngIf="possuiAnterior()" (click)="navegarPagina(pager.paginaAtual -1)">chevron_left</mat-icon>
+    <mat-icon class="custom-page-icon-disabled" *ngIf="!possuiAnterior()">chevron_left</mat-icon>
+
+    <span style="font-size:15px; margin-top:-20px; margin-left:15px; margin-right:15px;">Página {{pager.paginaAtual}} de {{pager.qtdPaginas}}</span>
+    
+    <mat-icon class="custom-page-icon" *ngIf="possuiPosterior()" (click)="navegarPagina(pager.paginaAtual +1)">chevron_right</mat-icon>
+    <mat-icon class="custom-page-icon-disabled" *ngIf="!possuiPosterior()">chevron_right</mat-icon>
+
+    <mat-icon class="custom-page-icon" *ngIf="possuiPosterior()" (click)="navegarPagina(pager.qtdPaginas)" style="margin-right:30px;">last_page</mat-icon>
+    <mat-icon class="custom-page-icon-disabled" *ngIf="!possuiPosterior()" style="margin-right:30px;">last_page</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>

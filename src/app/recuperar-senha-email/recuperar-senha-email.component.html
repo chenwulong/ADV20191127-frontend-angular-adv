@@ -1,0 +1,33 @@
+<div class="row pt-5 background-login">
+    <div class="col-md-5 mx-auto login-box">
+        <div class="card">
+            <div class="card-header" style="text-align:center;">
+                <h3 class="mb-0">Nova Senha</h3>
+            </div>
+            <div class="card-body">
+                <form class="form">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-9">
+                                <div class="form-group">
+                                    <label for="">Nova Senha: </label>
+                                    <input [(ngModel)]="strSenha" name="novasenha" type="password" class="form-control rounded-0" required>
+                                </div>
+                                <div class="form-group">
+                                        <label for="">Repetir Senha: </label>
+                                        <input [(ngModel)]="strSenhaConfirma" name="novasenhaconfirma" type="password" class="form-control rounded-0" required>
+                                    </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row  align-items-center justify-content-center">
+                                <button (click)="confirmaSenha()" type="button" class="btn btn-success btn-login"><mat-icon style="font-size: 50px; margin-left: -25px; margin-top: -25px; ">done</mat-icon></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row align-items-center justify-content-center">
+                            <button (click)="voltarLogin()" type="button" class="btn">Voltar Login!</button>
+                    </div>-->
+                </form>
+            </div>
+        </div> 
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>
+    <div class="row" style="margin-right: -20px!important;">
+        <div class="col-md-10" style="margin-top:-15px; ">Excluir Ação</div>
+        <!--<div class="col-md-2"><mat-icon (click)="close(null)" style="font-size:50px; margin-top:-60px; margin-left:-8px; cursor:pointer;">highlight_off</mat-icon></div>-->
+    </div>
+</h2>
+
+<mat-dialog-content>
+<p>
+    Confirma a exclusão da Ação: {{data.acao.codAcao}} - {{data.acao.numPasta}}?
+</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <mat-icon (click)="close(null)" style="font-size:50px; margin-top:-50px; cursor:pointer;">highlight_off</mat-icon>
+    <mat-icon (click)="close(data.acao)" style="font-size:50px; margin-left:25px; margin-top:-50px; cursor:pointer;">check_circle_outline</mat-icon>
+</mat-dialog-actions>

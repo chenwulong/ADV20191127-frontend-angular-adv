@@ -1,0 +1,118 @@
+<h2 mat-dialog-title>
+    <div class="row">
+        <div class="col-md-10" style="margin-top:-15px; ">Cadastro de Ações</div>
+        <!--<div class="col-md-2"><mat-icon (click)="close(null)" style="font-size:50px; margin-top:-60px; cursor:pointer;">highlight_off</mat-icon></div>-->
+    </div>
+</h2>
+
+<mat-dialog-content style="overflow: hidden;">
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Núm. Pasta</mat-label>
+            <input matInput [(ngModel)]="dadosAcao.numPasta">
+        </mat-form-field>
+    </div>
+<!--
+    <div class="row">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input type="text"
+                        placeholder="Autor"
+                        aria-label="Number"
+                        matInput [formControl]="myControl"
+                        [matAutocomplete]="auto"
+                        [(ngModel)]="dadosAcao.strAutor">
+                
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+    </div>
+-->
+
+
+<!-- autocomplete server-->
+<div class="row">
+    <form class="example-form">
+        <mat-form-field>
+            <input matInput placeholder="Autor" [matAutocomplete]="auto" 
+                [formControl]="searchMoviesCtrl" [(ngModel)]="dadosAcao.strAutor">
+            <mat-autocomplete #auto="matAutocomplete">
+                <!-- [displayWith]="displayFn"-->
+                <mat-option *ngIf="isLoading" class="is-loading">Carregando...</mat-option>
+                <ng-container *ngIf="!isLoading">
+                <mat-option *ngFor="let item of filteredItens" [value]="item">
+                    <span>{{item}}</span>
+                </mat-option>
+                </ng-container>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+</div>
+
+<div class="row">
+        <form class="example-form">
+            <mat-form-field>
+                <input matInput placeholder="Réu" [matAutocomplete]="auto" 
+                    [formControl]="searchMoviesCtrl2" [(ngModel)]="dadosAcao.strReu">
+                <mat-autocomplete #auto="matAutocomplete"><!-- [displayWith]="displayFn2" -->
+                    <mat-option *ngIf="isLoading2" class="is-loading">Carregando...</mat-option>
+                    <ng-container *ngIf="!isLoading2">
+                    <mat-option *ngFor="let item of filteredItens" [value]="item">
+                        <span>{{item}}</span>
+                    </mat-option>
+                    </ng-container>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+    </div>
+
+<!--{{ filteredItens | json}}-->
+<!-- autocomplete server-->
+
+
+
+<!--
+    <div class="row">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input type="text"
+                        placeholder="Réu"
+                        aria-label="Number"
+                        matInput [formControl]="myControl2"
+                        [matAutocomplete]="auto2"
+                        [(ngModel)]="dadosAcao.strReu">
+                    
+                <mat-autocomplete #auto2="matAutocomplete">
+                    <mat-option *ngFor="let option2 of filteredOptions2 | async" [value]="option2">
+                        {{option2}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+    </div>
+-->
+
+<!-- manter comentado
+        <div class="row">
+        <mat-form-field>
+            <mat-label>Obs.</mat-label>
+            <input matInput [(ngModel)]="dadosAcao.strObservacao">
+        </mat-form-field>
+    </div>
+-->
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Obs.</mat-label>
+            <textarea matInput placeholder="Obs." [(ngModel)]="dadosAcao.strObservacao"></textarea>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <mat-icon (click)="close(null)" style="font-size:50px; margin-top:-50px; cursor:pointer;">highlight_off</mat-icon>
+    <mat-icon (click)="close(dadosAcao)" style="font-size:48px; margin-left:25px; margin-top:-50px; cursor:pointer;">check_circle_outline</mat-icon>
+</mat-dialog-actions>

@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>
+    <div class="row">
+        <div class="col-md-10" style="margin-top:-15px; ">Cadastro de Usuários</div>
+        <!--<div class="col-md-2"><mat-icon (click)="close(null)" style="font-size:50px; margin-top:-60px; cursor:pointer;">highlight_off</mat-icon></div>-->
+    </div>
+</h2>
+
+<mat-dialog-content style="overflow: hidden;">
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput required [(ngModel)]="dadosUsuario.strLogin">
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <mat-icon (click)="close(null)" style="font-size:48px; margin-top:-50px; cursor:pointer;">highlight_off</mat-icon>
+    <mat-icon (click)="close(dadosUsuario)" style="font-size:48px; margin-left:25px; margin-top:-50px; cursor:pointer;">check_circle_outline</mat-icon>
+</mat-dialog-actions>
