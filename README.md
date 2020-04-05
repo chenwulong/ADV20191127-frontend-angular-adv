@@ -27,6 +27,6 @@ Run `docker-compose up`
 
 #### teste
 
-[Teste](https://github.com/chenwulong/ADV20191127-frontend-angular-adv/blob/master/doc/images/teste.png)
+![Teste](https://github.com/chenwulong/ADV20191127-frontend-angular-adv/blob/master/doc/images/teste.png)
 
 
