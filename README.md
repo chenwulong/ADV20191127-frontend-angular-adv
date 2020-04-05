@@ -27,6 +27,6 @@ Run `docker-compose up`
 
 #### teste
 
-[Teste](/docs/images/teste.png)
+[Teste](/doc/images/teste.png)
 
 
