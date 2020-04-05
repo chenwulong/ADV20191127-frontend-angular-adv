@@ -2,21 +2,31 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 
-# Project scope:
+## Project scope:
 Access management (basic);
 Clients and lawsuits location management;
 
-# REQ
+## REQ
 Windows 7
 Node 10.16.3
 Angular CLI 8.3.9
 
-# DEV
+### ENVIRONMENT
+
+#### DEV
 Run `npm install`
 
-# RUN
+#### RUN
 Run `ng serve`
 
-# DEPLOY
+#### DEPLOY
 Run `docker-compose build`
 Run `docker-compose up`
+
+### SAMPLES
+
+#### teste
+
+[Teste](/docs/images/teste.png)
+
+
